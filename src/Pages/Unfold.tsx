@@ -14,6 +14,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import NavButton from "../components/NavButton";
 import RedCoverText from "../components/RedCoverText";
+import RedCoverImage from "../components/RedCoverImage";
 
 const Unfold = () => {
 	const bingungRef = useRef<HTMLDivElement>(null);
@@ -50,14 +51,17 @@ const Unfold = () => {
 				<div className="absolute top-0 flex items-center justify-center w-full h-screen text-white">
 					<div className="">
 						<div className="flex justify-center mb-5 font-bold text-7xl">
-							<RedCoverText text="Unfold." />
+							<div>
+								<RedCoverText>Unfold.</RedCoverText>
+							</div>
 						</div>
 						<div className="flex justify-center mb-3 text-3xl">
-							<RedCoverText
-								text="I'm Glenn Chapman Hoyer a Product Designer Based in San Fransisco"
-								w="[600px]"
-								leading="leading-relaxed"
-							/>
+							<div>
+								<RedCoverText w="[600px]" leading="leading-relaxed">
+									I'm Glenn Chapman Hoyer a Product Designer Based in
+									San Fransisco
+								</RedCoverText>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -93,20 +97,21 @@ const Unfold = () => {
 						<div className="mt-16 mb-10 text-3xl font-bold">
 							Portfolio
 						</div>
-						<img
-							src="https://preview.colorlib.com/theme/unfold/images/work_1_md.jpg"
-							className="mb-7"
-							alt=""
-						/>
-						<img
-							src="https://preview.colorlib.com/theme/unfold/images/work_4_full.jpg"
-							className="mb-7"
-							alt=""
-						/>
-						<img
-							src="https://preview.colorlib.com/theme/unfold/images/work_7_a_md.jpg"
-							alt=""
-						/>
+
+						<RedCoverImage className="mb-7">
+							<img src="https://preview.colorlib.com/theme/unfold/images/work_1_md.jpg" />
+						</RedCoverImage>
+
+						<RedCoverImage className="mb-7">
+							<img
+								src="https://preview.colorlib.com/theme/unfold/images/work_4_full.jpg"
+								className="mb-7"
+							/>
+						</RedCoverImage>
+
+						<RedCoverImage>
+							<img src="https://preview.colorlib.com/theme/unfold/images/work_7_a_md.jpg" />
+						</RedCoverImage>
 
 						<div className="mt-[1530px]">
 							<img className="mb-5" src={digiStr} alt="" />
@@ -170,21 +175,26 @@ const Unfold = () => {
 					</div>
 
 					<div className="px-3">
-						<img
-							src="https://preview.colorlib.com/theme/unfold/images/work_2_md.jpg"
-							className="mb-7 mt-[140px]"
-							alt=""
-						/>
-						<img
-							src="https://preview.colorlib.com/theme/unfold/images/work_6_md.jpg"
-							className="mb-7"
-							alt=""
-						/>
-						<img
-							src="https://preview.colorlib.com/theme/unfold/images/work_9_a_md.jpg"
-							className="mb-7"
-							alt=""
-						/>
+						<RedCoverImage className="mb-7 mt-[140px]">
+							<img
+								src="https://preview.colorlib.com/theme/unfold/images/work_2_md.jpg"
+								alt=""
+							/>
+						</RedCoverImage>
+
+						<RedCoverImage className="mb-7">
+							<img
+								src="https://preview.colorlib.com/theme/unfold/images/work_6_md.jpg"
+								alt=""
+							/>
+						</RedCoverImage>
+
+						<RedCoverImage className="mb-7">
+							<img
+								src="https://preview.colorlib.com/theme/unfold/images/work_9_a_md.jpg"
+								alt=""
+							/>
+						</RedCoverImage>
 
 						<div className="text-3xl h-[800px] font-bold mt-[400px] mb-10 text-center relative">
 							About Me
@@ -310,21 +320,26 @@ const Unfold = () => {
 					</div>
 
 					<div className="px-3">
-						<img
-							src="https://preview.colorlib.com/theme/unfold/images/work_3_md.jpg"
-							className="mb-7 mt-[140px]"
-							alt=""
-						/>
-						<img
-							src="https://preview.colorlib.com/theme/unfold/images/work_5_md.jpg"
-							className="mb-7"
-							alt=""
-						/>
-						<img
-							src="https://preview.colorlib.com/theme/unfold/images/work_8_md.jpg"
-							className="mb-7"
-							alt=""
-						/>
+						<RedCoverImage className="mb-7 mt-[140px]">
+							<img
+								src="https://preview.colorlib.com/theme/unfold/images/work_3_md.jpg"
+								alt=""
+							/>
+						</RedCoverImage>
+
+						<RedCoverImage className="mb-7">
+							<img
+								src="https://preview.colorlib.com/theme/unfold/images/work_5_md.jpg"
+								alt=""
+							/>
+						</RedCoverImage>
+
+						<RedCoverImage className="mb-7">
+							<img
+								src="https://preview.colorlib.com/theme/unfold/images/work_8_md.jpg"
+								alt=""
+							/>
+						</RedCoverImage>
 
 						<div className="mt-[800px]">
 							<div className="mb-10 text-2xl font-bold">

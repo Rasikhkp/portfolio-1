@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 
 const RedCoverText = ({
-	text,
+	children,
 	w = "fit",
 	leading = "",
 }: {
-	text: string;
+	children: any;
 	w?: string;
 	leading?: string;
 }) => {
@@ -17,7 +17,7 @@ const RedCoverText = ({
 				animate={{ color: "white" }}
 				transition={{ delay: 0.5 }}
 			>
-				<div>{text}</div>
+				<div>{children}</div>
 			</motion.div>
 			<motion.div
 				className="absolute top-0 left-0 h-full bg-red-500"
