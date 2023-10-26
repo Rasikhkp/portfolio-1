@@ -18,22 +18,38 @@ import RedCoverImage from "../components/RedCoverImage";
 import SlideInFromLeft from "../components/SlideInFromLeft";
 
 const Unfold = () => {
-	const bingungRef = useRef<HTMLDivElement>(null);
+	const heroRef = useRef<HTMLDivElement>(null);
+	const footerRef = useRef<HTMLElement>(null);
 
-	const { scrollYProgress } = useScroll({
-		target: bingungRef,
+	const heroScroll = useScroll({
+		target: heroRef,
 		offset: ["start", "end start"],
 	});
 
-	const translateY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+	const footerScroll = useScroll({
+		target: footerRef,
+		offset: ["start end", "end"],
+	});
+
+	const heroTranslateY = useTransform(
+		heroScroll.scrollYProgress,
+		[0, 1],
+		["0%", "40%"]
+	);
+
+	const footerTrasnlateY = useTransform(
+		footerScroll.scrollYProgress,
+		[0, 1],
+		["-100%", "0%"]
+	);
 
 	return (
-		<>
+		<div className="relative w-fit bg-[#191919]">
 			<div
-				ref={bingungRef}
+				ref={heroRef}
 				className="relative w-full h-screen overflow-hidden"
 			>
-				<motion.img style={{ y: translateY }} src={laki} alt="" />
+				<motion.img style={{ y: heroTranslateY }} src={laki} alt="" />
 				<div className="absolute z-10 text-sm flex mt-[30px] top-0 text-white w-full justify-center">
 					<div className="flex items-center gap-5">
 						<NavButton navName="Home" />
@@ -206,7 +222,7 @@ const Unfold = () => {
 						</RedCoverImage>
 
 						<div className="text-3xl h-[800px] font-bold mt-[400px] mb-10 relative">
-							<div className="w-fit mx-auto text-center">
+							<div className="mx-auto text-center w-fit">
 								<SlideInFromLeft>
 									<div className="w-fit">About Me</div>
 									<img src={ombak} className="mx-auto mt-3" alt="" />
@@ -227,7 +243,7 @@ const Unfold = () => {
 						</div>
 
 						<div className="relative mt-32 mb-10 text-3xl font-bold">
-							<div className="w-fit mx-auto text-center">
+							<div className="mx-auto text-center w-fit">
 								<SlideInFromLeft>
 									<div className="w-fit">My Services</div>
 									<img src={ombak} className="mx-auto mt-3" alt="" />
@@ -256,7 +272,7 @@ const Unfold = () => {
 						</div>
 
 						<div className="relative mt-32 mb-10 text-3xl font-bold text-center">
-							<div className="w-fit mx-auto text-center">
+							<div className="mx-auto text-center w-fit">
 								<SlideInFromLeft>
 									<div className="w-fit">My Skills</div>
 									<img src={ombak} className="mx-auto mt-3" alt="" />
@@ -265,7 +281,7 @@ const Unfold = () => {
 						</div>
 
 						<div className="relative mb-10 text-3xl font-bold text-center mt-60">
-							<div className="w-fit mx-auto text-center">
+							<div className="mx-auto text-center w-fit">
 								<SlideInFromLeft>
 									<div className="w-fit">My Happy Clients</div>
 									<img src={ombak} className="mx-auto mt-3" alt="" />
@@ -326,7 +342,7 @@ const Unfold = () => {
 						</div>
 
 						<div className="text-3xl font-bold mt-[600px] mb-10 text-center relative">
-							<div className="w-fit mx-auto text-center">
+							<div className="mx-auto text-center w-fit">
 								<SlideInFromLeft>
 									<div className="w-fit">My Journal</div>
 									<img src={ombak} className="mx-auto mt-3" alt="" />
@@ -343,7 +359,7 @@ const Unfold = () => {
 						</div>
 
 						<div className="relative mt-32 mb-10 text-3xl font-bold text-center">
-							<div className="w-fit mx-auto text-center">
+							<div className="mx-auto text-center w-fit">
 								<SlideInFromLeft>
 									<div className="w-fit">Get In Touch</div>
 									<img src={ombak} className="mx-auto mt-3" alt="" />
@@ -475,30 +491,41 @@ const Unfold = () => {
 					</div>
 				</div>
 			</div>
-
-			<div className="flex justify-center w-full bg-[#191919] pt-20">
-				<div>
-					<div className="text-2xl font-bold text-center text-white">
-						Unfold.
-					</div>
-					<div className="flex w-[500px] mx-auto justify-between mt-14">
-						<div className="text-xs font-bold text-gray-400">
-							FACEBOOK
+			<div className="overflow-y-hidden">
+				<motion.footer
+					ref={footerRef}
+					style={{ y: footerTrasnlateY }}
+					className="flex justify-center w-full bg-[#191919] pt-20"
+				>
+					<div>
+						<div className="text-2xl font-bold text-center text-white">
+							Unfold.
 						</div>
-						<div className="text-xs font-bold text-gray-400">TWITTER</div>
-						<div className="text-xs font-bold text-gray-400">
-							INSTAGRAM
+						<div className="flex w-[500px] mx-auto justify-between mt-14">
+							<div className="text-xs font-bold text-gray-400">
+								FACEBOOK
+							</div>
+							<div className="text-xs font-bold text-gray-400">
+								TWITTER
+							</div>
+							<div className="text-xs font-bold text-gray-400">
+								INSTAGRAM
+							</div>
+							<div className="text-xs font-bold text-gray-400">
+								BEHANCE
+							</div>
+							<div className="text-xs font-bold text-gray-400">
+								DRIBBLE
+							</div>
 						</div>
-						<div className="text-xs font-bold text-gray-400">BEHANCE</div>
-						<div className="text-xs font-bold text-gray-400">DRIBBLE</div>
+						<div className="mt-10 mb-40 text-center text-gray-400">
+							Copyright © 2023 All rights reserved | This template is
+							made with by Colorlib
+						</div>
 					</div>
-					<div className="mt-10 mb-40 text-center text-gray-400">
-						Copyright © 2023 All rights reserved | This template is made
-						with by Colorlib
-					</div>
-				</div>
+				</motion.footer>
 			</div>
-		</>
+		</div>
 	);
 };
 
