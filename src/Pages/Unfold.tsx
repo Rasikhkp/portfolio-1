@@ -498,29 +498,31 @@ const Unfold = () => {
 					className="flex justify-center w-full bg-[#191919] pt-20"
 				>
 					<div>
-						<div className="text-2xl font-bold text-center text-white">
-							Unfold.
-						</div>
-						<div className="flex w-[500px] mx-auto justify-between mt-14">
-							<div className="text-xs font-bold text-gray-400">
-								FACEBOOK
+						<div>
+							<div className="text-2xl font-bold text-center text-white">
+								Unfold.
 							</div>
-							<div className="text-xs font-bold text-gray-400">
-								TWITTER
+							<div className="flex w-[500px] mx-auto justify-between mt-14">
+								<div className="text-xs font-bold text-gray-400">
+									FACEBOOK
+								</div>
+								<div className="text-xs font-bold text-gray-400">
+									TWITTER
+								</div>
+								<div className="text-xs font-bold text-gray-400">
+									INSTAGRAM
+								</div>
+								<div className="text-xs font-bold text-gray-400">
+									BEHANCE
+								</div>
+								<div className="text-xs font-bold text-gray-400">
+									DRIBBLE
+								</div>
 							</div>
-							<div className="text-xs font-bold text-gray-400">
-								INSTAGRAM
+							<div className="mt-10 mb-40 text-center text-gray-400">
+								Copyright © 2023 All rights reserved | This template is
+								made with by Colorlib
 							</div>
-							<div className="text-xs font-bold text-gray-400">
-								BEHANCE
-							</div>
-							<div className="text-xs font-bold text-gray-400">
-								DRIBBLE
-							</div>
-						</div>
-						<div className="mt-10 mb-40 text-center text-gray-400">
-							Copyright © 2023 All rights reserved | This template is
-							made with by Colorlib
 						</div>
 					</div>
 				</motion.footer>
