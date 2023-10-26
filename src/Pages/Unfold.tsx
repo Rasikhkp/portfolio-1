@@ -15,6 +15,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import NavButton from "../components/NavButton";
 import RedCoverText from "../components/RedCoverText";
 import RedCoverImage from "../components/RedCoverImage";
+import SlideInFromLeft from "../components/SlideInFromLeft";
 
 const Unfold = () => {
 	const bingungRef = useRef<HTMLDivElement>(null);
@@ -150,27 +151,35 @@ const Unfold = () => {
 						</div>
 
 						<div className="absolute top-[5400px] text-xs w-[570px]">
-							<div className="flex w-full gap-5 text-white">
-								<input
-									type="text"
-									placeholder="NAME"
-									className="flex-1 py-2 bg-transparent border-b border-gray-600 outline-none focus:border-gray-300"
-								/>
-								<input
-									type="text"
-									placeholder="EMAIL"
-									className="flex-1 py-2 bg-transparent border-b border-gray-600 outline-none focus:border-gray-300"
-								/>
-							</div>
-							<textarea
-								className="w-full py-2 mt-20 bg-transparent border-b border-gray-600 outline-none focus:border-gray-300"
-								cols={30}
-								rows={10}
-								placeholder="WRITE YOUR MASSAGE..."
-							></textarea>
-							<button className="px-8 py-4 mt-20 text-xs font-bold border-2 border-gray-400 rounded-full">
-								SEND MESSAGE
-							</button>
+							<SlideInFromLeft>
+								<div className="flex w-[570px] gap-5 text-white">
+									<input
+										type="text"
+										placeholder="NAME"
+										className="flex-1 py-2 bg-transparent border-b border-gray-600 outline-none focus:border-gray-300"
+									/>
+									<input
+										type="text"
+										placeholder="EMAIL"
+										className="flex-1 py-2 bg-transparent border-b border-gray-600 outline-none focus:border-gray-300"
+									/>
+								</div>
+							</SlideInFromLeft>
+
+							<SlideInFromLeft>
+								<textarea
+									className="w-[570px] py-2 mt-20 bg-transparent border-b border-gray-600 outline-none focus:border-gray-300"
+									cols={30}
+									rows={10}
+									placeholder="WRITE YOUR MASSAGE..."
+								></textarea>
+							</SlideInFromLeft>
+
+							<SlideInFromLeft>
+								<button className="px-8 py-4 mt-20 text-xs font-bold border-2 border-gray-400 rounded-full">
+									SEND MESSAGE
+								</button>
+							</SlideInFromLeft>
 						</div>
 					</div>
 
@@ -196,9 +205,13 @@ const Unfold = () => {
 							/>
 						</RedCoverImage>
 
-						<div className="text-3xl h-[800px] font-bold mt-[400px] mb-10 text-center relative">
-							About Me
-							<img src={ombak} className="mx-auto mt-3" alt="" />
+						<div className="text-3xl h-[800px] font-bold mt-[400px] mb-10 relative">
+							<div className="w-fit mx-auto text-center">
+								<SlideInFromLeft>
+									<div className="w-fit">About Me</div>
+									<img src={ombak} className="mx-auto mt-3" alt="" />
+								</SlideInFromLeft>
+							</div>
 							<div className="w-[634px] h-[646px] mt-[48px] -left-96 absolute overflow-hidden">
 								<img
 									className="scale-[1.4] translate-x-7 border absolute bg-yellow-400 translate-y-20 border-gray-900 z-10"
@@ -213,9 +226,13 @@ const Unfold = () => {
 							/>
 						</div>
 
-						<div className="relative mt-32 mb-10 text-3xl font-bold text-center">
-							My Services
-							<img src={ombak} className="mx-auto mt-3" alt="" />
+						<div className="relative mt-32 mb-10 text-3xl font-bold">
+							<div className="w-fit mx-auto text-center">
+								<SlideInFromLeft>
+									<div className="w-fit">My Services</div>
+									<img src={ombak} className="mx-auto mt-3" alt="" />
+								</SlideInFromLeft>
+							</div>
 						</div>
 
 						<div className="mt-12">
@@ -239,13 +256,21 @@ const Unfold = () => {
 						</div>
 
 						<div className="relative mt-32 mb-10 text-3xl font-bold text-center">
-							My Skills
-							<img src={ombak} className="mx-auto mt-3" alt="" />
+							<div className="w-fit mx-auto text-center">
+								<SlideInFromLeft>
+									<div className="w-fit">My Skills</div>
+									<img src={ombak} className="mx-auto mt-3" alt="" />
+								</SlideInFromLeft>
+							</div>
 						</div>
 
 						<div className="relative mb-10 text-3xl font-bold text-center mt-60">
-							My Happy Clients
-							<img src={ombak} className="mx-auto mt-3" alt="" />
+							<div className="w-fit mx-auto text-center">
+								<SlideInFromLeft>
+									<div className="w-fit">My Happy Clients</div>
+									<img src={ombak} className="mx-auto mt-3" alt="" />
+								</SlideInFromLeft>
+							</div>
 						</div>
 
 						<div className="absolute -left-24 w-[calc(100%+192px)] h-96 top-[3750px]">
@@ -301,8 +326,12 @@ const Unfold = () => {
 						</div>
 
 						<div className="text-3xl font-bold mt-[600px] mb-10 text-center relative">
-							My Journal
-							<img src={ombak} className="mx-auto mt-3" alt="" />
+							<div className="w-fit mx-auto text-center">
+								<SlideInFromLeft>
+									<div className="w-fit">My Journal</div>
+									<img src={ombak} className="mx-auto mt-3" alt="" />
+								</SlideInFromLeft>
+							</div>
 						</div>
 
 						<div className="mt-96 h-[330px] overflow-hidden">
@@ -314,8 +343,12 @@ const Unfold = () => {
 						</div>
 
 						<div className="relative mt-32 mb-10 text-3xl font-bold text-center">
-							Get In Touch
-							<img src={ombak} className="mx-auto mt-3" alt="" />
+							<div className="w-fit mx-auto text-center">
+								<SlideInFromLeft>
+									<div className="w-fit">Get In Touch</div>
+									<img src={ombak} className="mx-auto mt-3" alt="" />
+								</SlideInFromLeft>
+							</div>
 						</div>
 					</div>
 
@@ -342,25 +375,32 @@ const Unfold = () => {
 						</RedCoverImage>
 
 						<div className="mt-[800px]">
-							<div className="mb-10 text-2xl font-bold">
-								We can make it together
-							</div>
-							<div className="mb-10 leading-loose">
-								Far far away, behind the word mountains, far from the
-								countries Vokalia and Consonantia, there{" "}
-								<span className="text-red-500">live the blind</span>{" "}
-								text
-							</div>
-							<div className="mb-10 leading-loose">
-								A small river named Duden flows by their place and
-								supplies it with the necessary regelialia. It is a
-								paradisematic country, in which roasted parts of
-								sentences fly into your mouth.
-							</div>
-
-							<button className="px-8 py-4 text-xs font-bold border-2 border-gray-400 rounded-full">
-								DOWNLOAD MY CV
-							</button>
+							<SlideInFromLeft>
+								<div className="mb-10 text-2xl font-bold w-fit">
+									We can make it together
+								</div>
+							</SlideInFromLeft>
+							<SlideInFromLeft>
+								<div className="mb-10 leading-loose">
+									Far far away, behind the word mountains, far from the
+									countries Vokalia and Consonantia, there{" "}
+									<span className="text-red-500">live the blind</span>{" "}
+									text
+								</div>
+							</SlideInFromLeft>
+							<SlideInFromLeft>
+								<div className="mb-10 leading-loose">
+									A small river named Duden flows by their place and
+									supplies it with the necessary regelialia. It is a
+									paradisematic country, in which roasted parts of
+									sentences fly into your mouth.
+								</div>
+							</SlideInFromLeft>
+							<SlideInFromLeft>
+								<button className="px-8 py-4 text-xs font-bold border-2 border-gray-400 rounded-full">
+									DOWNLOAD MY CV
+								</button>
+							</SlideInFromLeft>
 						</div>
 
 						<div className="mt-[445px]">
@@ -391,34 +431,39 @@ const Unfold = () => {
 							/>
 						</div>
 
-						<div className="mt-5 h-[330px] overflow-hidden">
+						<div className="mt-5 h-[330px] overflow-hidden mb-80">
 							<img
 								className="-translate-y-40"
 								src="https://preview.colorlib.com/theme/unfold/images/post_5.jpg"
 								alt=""
 							/>
 						</div>
+						<SlideInFromLeft>
+							<div className="text-[11px] text-gray-600 mb-3 font-bold">
+								EMAIL
+							</div>
+							<div className="text-lg font-bold text-gray-400">
+								info@yourdomain.com
+							</div>
+						</SlideInFromLeft>
 
-						<div className="text-[11px] text-gray-600 mb-3 mt-80 font-bold">
-							EMAIL
-						</div>
-						<div className="text-lg font-bold text-gray-400">
-							info@yourdomain.com
-						</div>
+						<SlideInFromLeft>
+							<div className="text-[11px] text-gray-600 mb-3 mt-10 font-bold">
+								PHONE
+							</div>
+							<div className="text-lg font-bold text-gray-400">
+								+12 345 6789 012
+							</div>
+						</SlideInFromLeft>
 
-						<div className="text-[11px] text-gray-600 mb-3 mt-10 font-bold">
-							PHONE
-						</div>
-						<div className="text-lg font-bold text-gray-400">
-							+12 345 6789 012
-						</div>
-
-						<div className="text-[11px] text-gray-600 mb-3 mt-10 font-bold">
-							ADDRESS
-						</div>
-						<div className="text-lg font-bold text-gray-400">
-							273 South Riverview Rd. New York, NY 10011
-						</div>
+						<SlideInFromLeft>
+							<div className="text-[11px] text-gray-600 mb-3 mt-10 font-bold">
+								ADDRESS
+							</div>
+							<div className="text-lg font-bold text-gray-400">
+								273 South Riverview Rd. New York, NY 10011
+							</div>
+						</SlideInFromLeft>
 					</div>
 
 					<div className="absolute top-[1400px] w-full">

@@ -14,8 +14,8 @@ const RedCoverImage = ({
 				initial={{ scale: 1.3, opacity: 0 }}
 				whileInView={{ scale: 1, opacity: 1 }}
 				transition={{
-					scale: { delay: 1.9, duration: 2, ease: "easeOut" },
-					opacity: { delay: 1.3, duration: 0.1 },
+					scale: { delay: 1.3, duration: 2, ease: "easeOut" },
+					opacity: { delay: 1, duration: 0.1 },
 				}}
 				viewport={{ once: true }}
 			>
