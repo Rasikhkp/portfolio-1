@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const RedCoverImage = ({
 	children,
-	className,
+	className = "",
 }: {
 	children: any;
 	className?: string;
@@ -10,7 +10,6 @@ const RedCoverImage = ({
 	return (
 		<div className={`${className} relative w-fit h-fit overflow-hidden`}>
 			<motion.div
-				className="bg-yellow-50"
 				initial={{ scale: 1.3, opacity: 0 }}
 				whileInView={{ scale: 1, opacity: 1 }}
 				transition={{

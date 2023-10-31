@@ -9,15 +9,18 @@ import Ux from "../../public/img/ux.png";
 import WebDes from "../../public/img/web design.png";
 import WebDev from "../../public/img/web dev.png";
 import Wordpress from "../../public/img/wordpress.png";
-import woman from "../../public/img/woman.png";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import NavButton from "../components/NavButton";
 import RedCoverText from "../components/RedCoverText";
 import RedCoverImage from "../components/RedCoverImage";
 import SlideInFromLeft from "../components/SlideInFromLeft";
+import FeedbackCard from "../components/FeedbackCard";
+import ChevronLeft from "../components/ChevronLeft";
+import ChevronRight from "../components/ChevronRight";
 
 const Unfold = () => {
+	const [moveX, setMoveX] = useState(0);
 	const heroRef = useRef<HTMLDivElement>(null);
 	const footerRef = useRef<HTMLElement>(null);
 
@@ -28,7 +31,7 @@ const Unfold = () => {
 
 	const footerScroll = useScroll({
 		target: footerRef,
-		offset: ["start end", "end"],
+		offset: ["0 1", "1 1"],
 	});
 
 	const heroTranslateY = useTransform(
@@ -42,6 +45,10 @@ const Unfold = () => {
 		[0, 1],
 		["-100%", "0%"]
 	);
+
+	const prev = (x: number) => moveX < 0 && setMoveX(moveX + x * 1040);
+	const next = (x: number) => moveX > -2080 && setMoveX(moveX + x * -1040);
+	// const buttonNav = (x: number) => setMoveX(x * -1040)
 
 	return (
 		<div className="relative w-fit bg-[#191919]">
@@ -110,7 +117,7 @@ const Unfold = () => {
 
 			<div className="w-full px-24 text-white bg-black">
 				<div className="relative grid grid-cols-3 border-gray-900 divide-x divide-gray-900 border-x">
-					<div className="px-3">
+					<div className="px-3 mb-20">
 						<div className="mt-16 mb-10 text-3xl font-bold">
 							Portfolio
 						</div>
@@ -150,7 +157,7 @@ const Unfold = () => {
 							</div>
 						</div>
 
-						<div className="h-[330px] w-[745px] absolute top-[4400px] overflow-hidden">
+						<div className="h-[330px] w-[745px] absolute top-[4500px] overflow-hidden">
 							<img
 								className="-translate-y-52"
 								src="https://preview.colorlib.com/theme/unfold/images/post_1.jpg"
@@ -158,7 +165,7 @@ const Unfold = () => {
 							/>
 						</div>
 
-						<div className="mt-[1425px] h-[330px] mb-[800px] overflow-hidden">
+						<div className="mt-[1500px] h-[330px] mb-[800px] overflow-hidden">
 							<img
 								className="-translate-y-40"
 								src="https://preview.colorlib.com/theme/unfold/images/post_3.jpg"
@@ -166,7 +173,7 @@ const Unfold = () => {
 							/>
 						</div>
 
-						<div className="absolute top-[5400px] text-xs w-[570px]">
+						<div className="absolute top-[5500px] text-xs w-[570px]">
 							<SlideInFromLeft>
 								<div className="flex w-[570px] gap-5 text-white">
 									<input
@@ -228,12 +235,51 @@ const Unfold = () => {
 									<img src={ombak} className="mx-auto mt-3" alt="" />
 								</SlideInFromLeft>
 							</div>
-							<div className="w-[634px] h-[646px] mt-[48px] -left-96 absolute overflow-hidden">
-								<img
-									className="scale-[1.4] translate-x-7 border absolute bg-yellow-400 translate-y-20 border-gray-900 z-10"
-									src={laki}
-									alt=""
-								/>
+							<div className="w-[634px] h-[646px] mt-[48px] -left-96 absolute overflow-hidden z-10">
+								<motion.div
+									initial={{ scale: 1.6, opacity: 0 }}
+									whileInView={{
+										scale: 1.4,
+										opacity: 1,
+										x: "28px",
+										y: "-10px",
+									}}
+									transition={{
+										scale: {
+											delay: 1.3,
+											duration: 2,
+											ease: "easeOut",
+										},
+										opacity: { delay: 1, duration: 0.1 },
+									}}
+									viewport={{ once: true }}
+								>
+									<img
+										className="absolute bg-yellow-400 border border-gray-900"
+										src={laki}
+									/>
+								</motion.div>
+
+								<motion.div
+									className="absolute top-0 left-0 h-full bg-red-500"
+									whileInView={{
+										width: "100%",
+										x: "100%",
+									}}
+									transition={{
+										width: {
+											delay: 0.3,
+											duration: 0.5,
+											ease: [0.05, 0.01, 0.025, 0.95],
+										},
+										x: {
+											delay: 1,
+											duration: 1,
+											ease: [0.25, 0.27, 0.29, 0.95],
+										},
+									}}
+									viewport={{ once: true }}
+								></motion.div>
 							</div>
 							<img
 								src={pseudo}
@@ -288,60 +334,53 @@ const Unfold = () => {
 								</SlideInFromLeft>
 							</div>
 						</div>
+						<div className="absolute   w-[1349px] overflow-x-hidden pl-[180px]  h-[550px] -left-[97px] ">
+							<motion.div
+								className="flex gap-10"
+								animate={{ x: moveX }}
+								transition={{
+									duration: 1,
+									ease: [0.45, 0.05, 0.55, 0.95],
+								}}
+							>
+								<FeedbackCard />
+								<FeedbackCard />
+								<FeedbackCard />
+							</motion.div>
 
-						<div className="absolute -left-24 w-[calc(100%+192px)] h-96 top-[3750px]">
-							<div className="w-3/4 h-[336px] flex justify-center bg-[#212121] text-white p-12 mx-auto relative">
-								<div className="font-sans text-center text-7xl">
-									<svg
-										className="mx-auto mb-5"
-										fill="#ffffff"
-										width="40px"
-										height="40px"
-										viewBox="0 0 32 32"
-										version="1.1"
-										xmlns="http://www.w3.org/2000/svg"
-										stroke="#ffffff"
-									>
-										<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-										<g
-											id="SVGRepo_tracerCarrier"
-											stroke-linecap="round"
-											stroke-linejoin="round"
-										></g>
-										<g id="SVGRepo_iconCarrier">
-											{" "}
-											<title>quote</title>{" "}
-											<path d="M9.563 8.469l-0.813-1.25c-5.625 3.781-8.75 8.375-8.75 12.156 0 3.656 2.688 5.375 4.969 5.375 2.875 0 4.906-2.438 4.906-5 0-2.156-1.375-4-3.219-4.688-0.531-0.188-1.031-0.344-1.031-1.25 0-1.156 0.844-2.875 3.938-5.344zM21.969 8.469l-0.813-1.25c-5.563 3.781-8.75 8.375-8.75 12.156 0 3.656 2.75 5.375 5.031 5.375 2.906 0 4.969-2.438 4.969-5 0-2.156-1.406-4-3.313-4.688-0.531-0.188-1-0.344-1-1.25 0-1.156 0.875-2.875 3.875-5.344z"></path>{" "}
-										</g>
-									</svg>
-									<div className="text-[20px] text-white leading-loose">
-										Far far away, behind the word mountains, far from
-										the countries Vokalia and Consonantia, there live
-										the blind texts. Separated they live in
-										Bookmarksgrove right at the coast of the
-										Semantics, a large language ocean. A small river
-										named Duden flows by their place and supplies it
-										with the necessary regelialia. It is a
-										paradisematic country, in which roasted parts of
-										sentences fly into your mouth.
-									</div>
+							<div className="absolute bottom-0 flex items-center justify-between w-[1250px] left-12 h-10">
+								<button onClick={() => prev(1)}>
+									<ChevronLeft w={32} h={32} />
+								</button>
+								<div className="flex justify-between w-10">
+									<button
+										onClick={() => setMoveX(0)}
+										className={`w-2 h-2 ${
+											moveX == 0 ? "bg-white" : "bg-slate-600"
+										} rounded-full`}
+									></button>
+									<button
+										onClick={() => setMoveX(-1040)}
+										className={`w-2 h-2 ${
+											moveX == -1040 ? "bg-white" : "bg-slate-600"
+										} rounded-full`}
+									></button>
+									<button
+										onClick={() => setMoveX(2 * -1040)}
+										className={`w-2 h-2 ${
+											moveX == 2 * -1040
+												? "bg-white"
+												: "bg-slate-600"
+										} rounded-full`}
+									></button>
 								</div>
-								<div className="w-[95%] absolute -bottom-5 h-5 bg-[#D63447] mx-auto"></div>
-								<img
-									src={woman}
-									className="absolute bottom-0 w-20 mx-auto translate-y-1/2"
-									alt=""
-								/>
-								<div className="absolute bottom-0 text-lg translate-y-24">
-									Erica Miller
-								</div>
-								<div className="absolute bottom-0 text-xs text-gray-500 translate-y-28">
-									Product Manager @Twitter
-								</div>
+								<button onClick={() => next(1)}>
+									<ChevronRight w={32} h={32} />
+								</button>
 							</div>
 						</div>
 
-						<div className="text-3xl font-bold mt-[600px] mb-10 text-center relative">
+						<div className="text-3xl font-bold mt-[650px] mb-10 text-center relative">
 							<div className="mx-auto text-center w-fit">
 								<SlideInFromLeft>
 									<div className="w-fit">My Journal</div>
@@ -350,7 +389,7 @@ const Unfold = () => {
 							</div>
 						</div>
 
-						<div className="mt-96 h-[330px] overflow-hidden">
+						<div className="mt-[435px] h-[330px] overflow-hidden">
 							<img
 								className="-translate-y-40"
 								src="https://preview.colorlib.com/theme/unfold/images/post_4.jpg"
@@ -439,7 +478,7 @@ const Unfold = () => {
 							</div>
 						</div>
 
-						<div className="mt-[1080px] h-[330px] overflow-hidden">
+						<div className="mt-[1180px] h-[330px] overflow-hidden">
 							<img
 								className="-translate-y-40"
 								src="https://preview.colorlib.com/theme/unfold/images/post_2.jpg"
@@ -492,12 +531,12 @@ const Unfold = () => {
 				</div>
 			</div>
 			<div className="overflow-y-hidden">
-				<motion.footer
-					ref={footerRef}
-					style={{ y: footerTrasnlateY }}
-					className="flex justify-center w-full bg-[#191919] pt-20"
-				>
-					<div>
+				<div>
+					<motion.footer
+						ref={footerRef}
+						style={{ translateY: footerTrasnlateY }}
+						className="flex justify-center w-full bg-[#191919] pt-20"
+					>
 						<div>
 							<div className="text-2xl font-bold text-center text-white">
 								Unfold.
@@ -524,8 +563,8 @@ const Unfold = () => {
 								made with by Colorlib
 							</div>
 						</div>
-					</div>
-				</motion.footer>
+					</motion.footer>
+				</div>
 			</div>
 		</div>
 	);
