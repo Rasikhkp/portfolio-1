@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 
 const SlideInFromLeft = ({ children }: { children: any }) => {
 	return (
-		<div className="relative h-fit overflow-hidden w-fit">
+		<div className="relative overflow-hidden w-fit h-fit">
 			<div>{children}</div>
 			<motion.div
-				className="absolute top-0 left-0 h-full w-full bg-black"
+				className="absolute top-0 left-0 w-full h-full bg-black"
 				whileInView={{
 					x: "100%",
 				}}

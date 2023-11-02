@@ -1,5 +1,4 @@
 import laki from "../../public/img/damn.webp";
-import logo from "../../public/img/logo banyak.png";
 import skill from "../../public/img/skill.png";
 import ombak from "../../public/img/ombak.png";
 import pseudo from "../../public/img/pseudo.png";
@@ -16,6 +15,7 @@ import RedCoverText from "../components/RedCoverText";
 import RedCoverImage from "../components/RedCoverImage";
 import SlideInFromLeft from "../components/SlideInFromLeft";
 import FeedbackCarousel from "../components/FeedbackCarousel";
+import BrandCarousel from "../components/BrandCarousel";
 
 const Unfold = () => {
 	const heroRef = useRef<HTMLDivElement>(null);
@@ -471,9 +471,7 @@ const Unfold = () => {
 						</SlideInFromLeft>
 					</div>
 
-					<div className="absolute top-[1400px] w-full">
-						<img src={logo} alt="" />
-					</div>
+					<BrandCarousel />
 
 					<div className="absolute top-[3400px] w-full">
 						<img src={skill} alt="" />

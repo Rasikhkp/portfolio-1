@@ -7,6 +7,7 @@ const ChevronLeft = ({ w, h }: { w: number; h: number }) => {
 			onMouseEnter={() => setChevronColor("#86A789")}
 			onMouseLeave={() => setChevronColor("#D2E3C8")}
 			onMouseDown={() => setChevronColor("#3A4D39")}
+			onMouseUp={() => setChevronColor("#86A789")}
 			xmlns="http://www.w3.org/2000/svg"
 			width={w}
 			height={h}

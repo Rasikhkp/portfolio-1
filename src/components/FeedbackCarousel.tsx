@@ -10,7 +10,7 @@ const FeedbackCarousel = () => {
 	const prev = (x: number) => moveX < 0 && setMoveX(moveX + x * 1040);
 	const next = (x: number) => moveX > -2080 && setMoveX(moveX + x * -1040);
 	return (
-		<div className="absolute   w-[1349px] overflow-x-hidden pl-[180px]  h-[550px] -left-[97px] ">
+		<div className="absolute w-[1349px] overflow-x-hidden pl-[180px]  h-[550px] -left-[97px] ">
 			<motion.div
 				className="flex gap-10"
 				animate={{ x: moveX }}
