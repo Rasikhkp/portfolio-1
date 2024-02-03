@@ -17,7 +17,7 @@ Welcome to the repository of my portfolio practice website.
 
 ## Preview
 
-![Screenshot of My Portfolio Website](/public/img/ss.pngs)
+![Screenshot of My Portfolio Website](/public/img/ss.png)
 
 ## Live Demo
 
